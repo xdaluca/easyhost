@@ -47,6 +47,14 @@
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
+  networks: {
+    development: {
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: "*"
+    },
+    // ... other networks configurations
+  },
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -56,8 +64,6 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
-  networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache, geth, or parity) in a separate terminal
@@ -96,7 +102,6 @@ module.exports = {
     //   network_id: 2111,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
-  },
 
   // Set default mocha options here, use special reporters, etc.
   mocha: {
