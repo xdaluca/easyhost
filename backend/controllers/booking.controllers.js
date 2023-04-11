@@ -19,8 +19,8 @@ exports.getBookingById = async (req, res) => {
   }
 };
 
-exports.createBooking = async (req, res) => {
-  const { property, user, checkInDate, checkOutDate, totalAmount } = req.body;
+exports.createBooking = async (bookingData) => {
+  const { property, user, checkInDate, checkOutDate, totalAmount } = bookingData;
 
   const booking = new Booking({
     property,
@@ -32,8 +32,9 @@ exports.createBooking = async (req, res) => {
 
   try {
     const savedBooking = await booking.save();
-    res.status(201).json(savedBooking);
+    return savedBooking;
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("Error in createBooking:", error);
+    throw error;
   }
 };
