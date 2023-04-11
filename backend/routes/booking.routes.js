@@ -1,6 +1,7 @@
+const createBookingOnChain = require('../bookingOnChain').createBookingOnChain;
 const express = require('express');
-const { 
-  getAllBookings, 
+const {
+  getAllBookings,
   getBookingById,
   createBooking,
 } = require('../controllers/booking.controllers');
@@ -10,18 +11,36 @@ const router = express.Router();
 router.get('/', getAllBookings);
 router.get('/:id', getBookingById);
 router.post('/', async (req, res) => {
-    // Extract the required data from the request
-    const { propertyId, checkInDate, checkOutDate, totalAmount, userAddress } = req.body;
-  
     try {
-      // Call the createBookingOnChain function to interact with the smart contract
-      const result = await createBookingOnChain(propertyId, checkInDate, checkOutDate, totalAmount, userAddress);
-  
-      // Handle the result, e.g., save the booking to the database, send a response to the client, etc.
-      res.status(201).json({ message: 'Booking created successfully', data: result });
+        const { propertyId, checkInDate, checkOutDate, totalAmount, userAddress } = req.body;
+
+        console.log('propertyId:', propertyId);
+        console.log('checkInDate:', checkInDate);
+        console.log('checkOutDate:', checkOutDate);
+        console.log('totalAmount:', totalAmount);
+        console.log('userAddress:', userAddress);
+
+        const result = await createBookingOnChain(
+            parseInt(propertyId),
+            parseInt(checkInDate),
+            parseInt(checkOutDate),
+            parseInt(totalAmount),
+            userAddress
+        );
+      
+        const savedBooking = await createBooking({
+            property: propertyId,
+            user: userAddress,
+            checkInDate,
+            checkOutDate,
+            totalAmount,
+          });          
+    
+      res.status(201).json({ blockchainResult: result, booking: savedBooking });
     } catch (error) {
-      res.status(500).json({ message: 'Error creating booking', error: error.message });
+      console.error('Error in POST /api/bookings:', error);
+      res.status(500).json({ message: 'An error occurred while creating the booking' });
     }
   });  
-  
-  module.exports = router;
+
+module.exports = router;
