@@ -1,6 +1,6 @@
 # Easyhost
 
-Easyhost is a simple backend, smart contract that enables people to build decentralized accommodation marketplaces. This is a work in progress, and is not yet ready for production use.
+Easyhost aims to provide a simple architecture for people to build web3 native accommodation marketplaces or booking pages for hosts. This is a work in progress and is not yet ready for production use.
 
 ## Getting Started
 
