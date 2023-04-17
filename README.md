@@ -64,14 +64,14 @@ As this is a work in progress, the architecture is subject to change, I would li
 
 ```mermaid
 graph LR;
-A[Backend] --> B[Node.js];
-A --> C[Express.js];
-A --> D[MongoDB<br>(replace with IPFS?)];
-E[Smart Contracts] --> F[Ethereum];
-E --> G[Solidity];
-E --> H[Web3.js];
-E --> I[Truffle];
-E --> J[Ganache<br>(for development)];
+    A[Backend] --> B[Node.js];
+    A --> C[Express.js];
+    A --> D[MongoDB<br>(replace with IPFS?)];
+    E[Smart Contracts] --> F[Ethereum];
+    E --> G[Solidity];
+    E --> H[Web3.js];
+    E --> I[Truffle];
+    E --> J[Ganache<br>(for development)];
 ```
 
 ## Contributing
