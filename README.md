@@ -63,15 +63,15 @@ You can now test the API endpoints using Postman or another API testing tool.
 As this is a work in progress, the architecture is subject to change, I would like to change the db to a more decentralized solution, but for the sake of setting it up, it is using MongoDB.
 
 ```mermaid
-graph LR
-A[Backend] --> B[Node.js]
-A --> C[Express.js]
-A --> D[MongoDB<br>(replace with IPFS?)]
-E[Smart Contracts] --> F[Ethereum]
-E --> G[Solidity]
-E --> H[Web3.js]
-E --> I[Truffle]
-E --> J[Ganache<br>(for development)]
+graph LR;
+A[Backend] --> B[Node.js];
+A --> C[Express.js];
+A --> D[MongoDB<br>(replace with IPFS?)];
+E[Smart Contracts] --> F[Ethereum];
+E --> G[Solidity];
+E --> H[Web3.js];
+E --> I[Truffle];
+E --> J[Ganache<br>(for development)];
 ```
 
 ## Contributing
