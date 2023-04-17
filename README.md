@@ -66,12 +66,12 @@ As this is a work in progress, the architecture is subject to change, I would li
 graph LR;
     A[Backend] --> B[Node.js];
     A --> C[Express.js];
-    A --> D[MongoDB<br>(replace with IPFS?)];
+    A --> D[MongoDB];
     E[Smart Contracts] --> F[Ethereum];
     E --> G[Solidity];
     E --> H[Web3.js];
     E --> I[Truffle];
-    E --> J[Ganache<br>(for development)];
+    E --> J[Ganache];
 ```
 
 ## Contributing
