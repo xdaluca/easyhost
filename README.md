@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Easyhost
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Easyhost is a simple backend, smart contract that enables people to build decentralized accommodation marketplaces. This is a work in progress, and is not yet ready for production use.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run this project, you'll need:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Node.js (v14.x or higher)
+* Yarn (optional, you can use npm instead)
+* MetaMask browser extension
+* Ganache or another Ethereum development network
+* MongoDB Atlas account (optional, you can use a local MongoDB instance instead)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+```bash
+git clone https://github.com/xdaluca/easyhost.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install the dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd easyhost
+yarn install # or "npm install"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Compile and deploy the smart contract:
 
-### `npm run eject`
+Replace the `bookingAddress` variable in `bookingOnChain.js` with your contract address.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Set up your local Ethereum network:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start Ganache or another Ethereum development network and connect MetaMask to it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Set up the database:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Connect your MongoDB instance to the backend server. You can use a local MongoDB instance or MongoDB Atlas.
 
-## Learn More
+7. Start Ganache or another Ethereum development network and connect MetaMask to it.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+ganache-cli
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+8. Start the backend server:
 
-### Code Splitting
+```bash
+cd backend
+node app.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can now test the API endpoints using Postman or another API testing tool.
 
-### Analyzing the Bundle Size
+## Project Architecture
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+As this is a work in progress, the architecture is subject to change, I would like to change the db to a more decentralized solution, but for the sake of setting it up, it is using MongoDB.
 
-### Making a Progressive Web App
+```mermaid
+graph LR
+A[Backend] --> B[Node.js]
+A --> C[Express.js]
+A --> D[MongoDB<br>(replace with IPFS?)]
+E[Smart Contracts] --> F[Ethereum]
+E --> G[Solidity]
+E --> H[Web3.js]
+E --> I[Truffle]
+E --> J[Ganache<br>(for development)]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+If anyone is interested in contributing to this please reach out, It would be great to review the architecture and see if there are any foundational improvements that can be made before doing more implementation work.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy Hosting.
