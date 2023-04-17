@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -17,7 +18,7 @@ app.use('/api/properties', propertyRoutes);
 app.use('/api/bookings', bookingRoutes);
 
 // Connect to MongoDB
-const connectionString = 'mongodb+srv://xdaluca:gUogulcQ2x8HLyu0@cluster0.wrshs3m.mongodb.net/?retryWrites=true&w=majority';
+const connectionString = process.env.MONGODB_CONNECTION_STRING;
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
